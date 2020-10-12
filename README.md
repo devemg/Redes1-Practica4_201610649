@@ -124,6 +124,20 @@ A continuación se muestra la configuración del router utilizado para esta prá
 ------------------------------------------------FOTO---------------------------------------------------------------------------
 
 
+### Configuración de Port-Channel
+Etherchannel es una tecnología de CISCO que nos permite realizar una agrupación lógica de varios enlaces físicos ethernet para que estos enlaces sean tratados como un único enlace, permitiendo sumar la velocidad de cada puerto y de esta forma lograr un enlace troncal de alta velocidad.
+
+En cada extremo de los switches capa tres, ejecutar los siguientes comandos: 
+
+1. Ejecutar `interface range fastethernet 0/1 – 4` para ingresar a la configuración de las interfaces
+2. Ejecutar `channel-group <N> mode on` en donde N es un número entre 1 y 64
+3. `exit`
+4. Ingresar a la configuración del channel-group `interface port-channel <N>` 
+5. Configurar el enlace de forma troncal `switchport mode trunk`
+6. `exit`
+7. Repetir en ambos extremos de la conexión para cada port-channel
+
+------------------------------------------------FOTO---------------------------------------------------------------------------
 
 ### Pruebas
 Para probar la comunicación entre los cuatro host se utilizaran paquetes ICMP por medio del comando [ping](https://linux.die.net/man/8/ping) con el objetivo de verificar la conectividad.
