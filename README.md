@@ -11,7 +11,7 @@ Un host virtualizado con sistema operativo Tiny Linux
 Tres Switch capa tres
 Un Router simulado con dos interfaces
 
-------------------------------------------------FOTO---------------------------------------------------------------------------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/Topologia_p4.png)
 
 ### Distribución de Redes
 
@@ -38,13 +38,13 @@ La configuración de los host simulados en GNS3 se realiza siguiendo estos pasos
 A continuación se muestra la configuración de los host utilizados para esta práctica.
 
 #### PC2
-------------------------------------------------FOTO---------------------------------------------------------------------------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/host/host1.PNG)
 
 #### PC3
-------------------------------------------------FOTO---------------------------------------------------------------------------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/host/host2.PNG)
 
 #### PC4
-------------------------------------------------FOTO---------------------------------------------------------------------------
+3![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/host/host3.PNG)
 
 #### PC1
 El host "TinyLinux-1" es un dispositivo virtualizado con el sistema operativo Tiny Linux. La configuración de red se realiza con los siguientes pasos:
@@ -91,13 +91,13 @@ Para ver las configuraciones de VLANs se utiliza el comando `show vlan-switch`
 A continuación se muestra la salida de este comando en cada uno de los switches de la topología.
 
 ###### SW1 (Server)
-------------------------------------------------FOTO---------------------------------------------------------------------------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/vlans/sh-vlan-sw1.PNG)
 
 ###### SW2 (Client)
-------------------------------------------------FOTO---------------------------------------------------------------------------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/vlans/sh-vlan-sw2.PNG)
 
 ###### SW3 (Client)
-------------------------------------------------FOTO---------------------------------------------------------------------------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/vlans/sh-vlan-sw3.PNG)
 
 ###### Switch 1 y 2 
 Para los switches proveídos por GNS3 que no son programables por consola, se configuraron de la siguiente manera: 
@@ -107,6 +107,7 @@ Para los switches proveídos por GNS3 que no son programables por consola, se co
 3. Asignar a los puertos conectados a dispositivos finales el tipo **access** y la VLAN correspondiente
 4. Dar clic en aplicar y luego en aceptar
 
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/vlans/esw-config-3.PNG)
 
 ### Configuración de router
 La configuración del switch simulados en GNS3 se realiza siguiendo estos pasos: 
@@ -119,10 +120,9 @@ La configuración del switch simulados en GNS3 se realiza siguiendo estos pasos:
 
 A continuación se muestra la configuración del router utilizado para esta práctica y la salida del comando `show ip int brief` al finalizar.
 
-------------------------------------------------FOTO---------------------------------------------------------------------------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/vlans/router.PNG)
 
-------------------------------------------------FOTO---------------------------------------------------------------------------
-
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/vlans/router-2.PNG)
 
 ### Configuración de Port-Channel
 Etherchannel es una tecnología de CISCO que nos permite realizar una agrupación lógica de varios enlaces físicos ethernet para que estos enlaces sean tratados como un único enlace, permitiendo sumar la velocidad de cada puerto y de esta forma lograr un enlace troncal de alta velocidad.
@@ -137,12 +137,17 @@ En cada extremo de los switches capa tres, ejecutar los siguientes comandos:
 6. `exit`
 7. Repetir en ambos extremos de la conexión para cada port-channel
 
-------------------------------------------------FOTO---------------------------------------------------------------------------
+A continuación se muestra la salida del comando `sh etherchnanel port-channel` para verificar los port channel.
+
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/port-channel/port-channel-1.PNG)
+
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/port-channel/port-channel-2.PNG)
 
 ### Pruebas
 Para probar la comunicación entre los cuatro host se utilizaran paquetes ICMP por medio del comando [ping](https://linux.die.net/man/8/ping) con el objetivo de verificar la conectividad.
 A continuación se muestra la respuesta de la red al hacer ping desde cada uno de los host a todos los demás.
 
+----------------------------------------------------FOTOS-------------------------------------------------------
 
 ### Captura de paquetes
 
@@ -161,13 +166,26 @@ Luego podrá observar en wireshark los paquetes capturados con la información r
 A continuación se muestra la captura de paquetes de la interfaz f0/0 del router en donde se capturaron los paquetes ICMP generados por el comando ping desde el host con IP 192.168.10.70 hacia el host con IP 192.168.10.5.
 
 ##### Echo Request 
-------IMAGEN--------
 
-------CODIGO------                                         >?
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/capturas/request.PNG)
+
+`0000   00 50 79 66 68 03 c2 01 08 ec 00 00 81 00 00 0a   .Pyfh...........
+0010   08 00 45 00 00 54 49 af 00 00 ff 01 c9 96 c0 a8   ..E..TI.........
+0020   13 fe c0 a8 13 14 00 00 78 bd af 49 00 05 08 09   ........x..I....
+0030   0a 0b 0c 0d 0e 0f 10 11 12 13 14 15 16 17 18 19   ................
+0040   1a 1b 1c 1d 1e 1f 20 21 22 23 24 25 26 27 28 29   ...... !"#$%&'()
+0050   2a 2b 2c 2d 2e 2f 30 31 32 33 34 35 36 37 38 39   *+,-./0123456789
+0060   3a 3b 3c 3d 3e 3f                                 :;<=>?`
 
 
 ##### Eco Reply
 
-------IMAGEN--------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/capturas/reply.PNG)
 
-------CODIGO------
+`0000   c2 01 08 ec 00 00 00 50 79 66 68 03 81 00 00 0a   .......Pyfh.....
+0010   08 00 45 00 00 54 49 af 00 00 40 01 88 97 c0 a8   ..E..TI...@.....
+0020   13 14 c0 a8 13 fe 08 00 70 bd af 49 00 05 08 09   ........p..I....
+0030   0a 0b 0c 0d 0e 0f 10 11 12 13 14 15 16 17 18 19   ................
+0040   1a 1b 1c 1d 1e 1f 20 21 22 23 24 25 26 27 28 29   ...... !"#$%&'()
+0050   2a 2b 2c 2d 2e 2f 30 31 32 33 34 35 36 37 38 39   *+,-./0123456789
+0060   3a 3b 3c 3d 3e 3f                                 :;<=>?`
