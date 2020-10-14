@@ -59,8 +59,7 @@ El host "TinyLinux-1" es un dispositivo virtualizado con el sistema operativo Ti
     
 3. Agregar la puerta de enlace con el comando route add `default gateway <GATEWAY>`
 
-------------------------------------------------FOTO---------------------------------------------------------------------------
-
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/host/hostv.PNG)
 
 ### Creación de Vlans
 
@@ -147,8 +146,9 @@ A continuación se muestra la salida del comando `sh etherchnanel port-channel` 
 Para probar la comunicación entre los cuatro host se utilizaran paquetes ICMP por medio del comando [ping](https://linux.die.net/man/8/ping) con el objetivo de verificar la conectividad.
 A continuación se muestra la respuesta de la red al hacer ping desde cada uno de los host a todos los demás.
 
-----------------------------------------------------FOTOS-------------------------------------------------------
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/host/ping2.PNG)
 
+![image](https://github.com/EmmGarci4/Redes1-Practica4_201610649/blob/main/img/host/ping3.PNG)
 ### Captura de paquetes
 
 GNS3 nos permite capturar paquetes ICMP para analizar la transferencia de paquetes y verificar la conectividad. Esto se realiza por medio de un software llamado [Wireshark](https://www.wireshark.org/).
