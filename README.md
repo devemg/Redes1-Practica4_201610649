@@ -189,3 +189,33 @@ A continuación se muestra la captura de paquetes de la interfaz f0/0 del router
 0040   1a 1b 1c 1d 1e 1f 20 21 22 23 24 25 26 27 28 29   ...... !"#$%&'()
 0050   2a 2b 2c 2d 2e 2f 30 31 32 33 34 35 36 37 38 39   *+,-./0123456789
 0060   3a 3b 3c 3d 3e 3f                                 :;<=>?`
+
+### Protocolo STP
+Utilizando el protocolo STP se verificó los puertos bloqueados por este para evitar bucles con el comando`sh spanning-tree blockedports`.
+Además se verificó la interfaz principal con el comando 'sh spanning-tree root'.
+Se obtuvieron los siguientes resultados y se dedujo el camino principal que toman los paquetes.
+
+#### Switch 1
+##### Interfaces Bloqueadas
+![image](https://github.com/devemg/Redes1-Practica4_201610649/blob/main/img/stp/sw1-block.PNG)
+
+##### Root
+![image](https://github.com/devemg/Redes1-Practica4_201610649/blob/main/img/stp/sw1-root.PNG)
+
+#### Switch 2
+##### Interfaces Bloqueadas
+![image](https://github.com/devemg/Redes1-Practica4_201610649/blob/main/img/stp/sw2-block.PNG)
+##### Root
+![image](https://github.com/devemg/Redes1-Practica4_201610649/blob/main/img/stp/sw2-root.PNG)
+
+#### Switch 3
+##### Interfaces Bloqueadas
+![image](https://github.com/devemg/Redes1-Practica4_201610649/blob/main/img/stp/sw3-block.PNG)
+##### Root
+![image](https://github.com/devemg/Redes1-Practica4_201610649/blob/main/img/stp/sw3-root.PNG)
+
+#### Diagrama
+![image](https://github.com/devemg/Redes1-Practica4_201610649/blob/main/img/stp.png)
+
+
+
